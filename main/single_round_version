@@ -1,0 +1,51 @@
+"""
+Rock–Paper–Scissors Game 🎮
+---------------------------
+This is a simple Python program where:
+- The user chooses Rock (r), Paper (p), or Scissor (s).
+- The computer randomly selects one of the three options.
+- The program compares both choices and declares the result:
+    - Draw if both are the same
+    - User wins if their choice beats the computer
+    - Computer wins otherwise
+"""
+
+
+#  1 = Rock; 2 = Paper; 3 = Scissor
+game = {
+    1: "Rock",
+    2: "Paper",
+    3: "Scissor"
+} # to select the input 
+gamedict = {
+    "r": 1,
+    "p": 2,
+    "s": 3
+} # to present the output
+
+import random
+# to use random function for generating computers' choice
+
+computer = random.choice([1, 2, 3]) # to generate random number from 1-3
+x = (input("Enter r or p or s: ")) # user's choice
+if x not in gamedict:
+    print("Invalid Entry...!!!")
+else:
+    user = gamedict[x] #selecting the value from index in dict
+    print(f"Your Choice: {game[user]}")
+    print(f"Computer Choice: {game[computer]}")
+    if (computer == user):
+        print("Draw!")
+    else: # Nested if else
+        if (computer == 1 and user == 2):
+            print("You Win!")
+        elif (computer == 1 and user == 3):
+            print("You Lose!")
+        elif (computer == 2 and user == 3):
+            print("You Win!")
+        elif (computer == 2 and user == 1):
+            print("You Lose!")
+        elif (computer == 3 and user == 2):
+            print("You Lose!")
+        elif (computer == 3 and user == 1):
+            print("You Win!")
